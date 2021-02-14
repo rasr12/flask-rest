@@ -7,7 +7,7 @@ class Globals {
 node('master') {
   stage("Setting Up") {
     cleanWs()
-    git_info = git credentialsId: "gitlab", branch: "${BRANCH.trim()}", url: "https://github.com/rasr12/flask-rest.git"
+    git_info = git credentialsId: "github", branch: "${BRANCH.trim()}", url: "https://github.com/rasr12/flask-rest.git"
     git_commit_id = git_info['GIT_COMMIT'].substring(0, 8)
   }
 
