@@ -9,5 +9,11 @@ node('master') {
     cleanWs()
     git branch: 'master', url: 'https://github.com/rasr12/flask-rest.git'
   }
+  
+  stage("Building Docker Image") {
+    timestamps {
+      sh "docker build -t flask-rest /Users/a757688/flask-rest"
+    }
+  }
 
 }
