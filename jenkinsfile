@@ -4,7 +4,7 @@ class Globals {
   static String docker_image_tar_checksum_filename = ''
 }
 
-node('master') {
+node('agent') {
   stage("Setting Up") {
     cleanWs()
     git branch: 'master', url: 'https://github.com/rasr12/flask-rest.git'
