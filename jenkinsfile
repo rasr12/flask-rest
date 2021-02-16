@@ -15,5 +15,12 @@ node('agent') {
       sh "docker build -t flask-rest ."
     }
   }
+  stage("Orchestrate pod") {
+    timestamps {
+        script{
+          sh 'kubectl apply -f minikube/flask-rest-pod.yaml'
+        }
+    }
+  }
 
 }
