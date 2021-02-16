@@ -12,7 +12,7 @@ node('agent') {
   
   stage("Building Docker Image") {
     timestamps {
-      sh "docker build -t flask-rest /Users/a757688/flask-rest"
+      sh "docker build -t flask-rest ."
     }
   }
 
