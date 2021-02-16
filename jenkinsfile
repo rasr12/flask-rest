@@ -18,7 +18,7 @@ node('agent') {
   stage("Orchestrate pod") {
     timestamps {
         script{
-          sh 'kubectl apply -f minikube/flask-rest-pod.yaml'
+          kubernetesDeploy(configs: "minikube/flask-rest-pod.yaml", kubeconfigId: "minikubeconfig")
         }
     }
   }
