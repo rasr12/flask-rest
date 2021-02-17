@@ -4,14 +4,18 @@ metadata:
   name: flask-rest
 spec:
   replicas: 1
-  template:
+  selector:
+    matchLabels:
+        build_number: ${BUILD_NUMBER}
+        app: ${JOB_NAME}
+  template:    
     metadata:
       labels:
         build_number: ${BUILD_NUMBER}
         app: ${JOB_NAME}
     spec:
       containers:
-      - name: ${JOB_NAME}-container        
+      - name: flask-rest-container        
         image: flask-rest:latest
         ports:
         - containerPort: 8000
