@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: flask-rest
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        build_number: ${BUILD_NUMBER}
+        app: ${JOB_NAME}
+    spec:
+      containers:
+      - name: ${JOB_NAME}-container        
+        image: flask-rest:latest
+        ports:
+        - containerPort: 8000
+      imagePullSecrets:
+      - name: $KUBERNETES_SECRET_NAME
+  strategy:
+    type: RollingUpdate
