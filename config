@@ -1,0 +1,28 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: /Users/a757688/.minikube/ca.crt
+    server: https://192.168.64.3:8443
+  name: minikube
+contexts:
+- context:
+    cluster: minikube
+    user: minikube
+  name: minikube
+- context:
+    cluster: minikube
+    namespace: lfs158
+    user: student
+  name: student-context
+current-context: minikube
+kind: Config
+preferences: {}
+users:
+- name: minikube
+  user:
+    client-certificate: /Users/a757688/.minikube/profiles/minikube/client.crt
+    client-key: /Users/a757688/.minikube/profiles/minikube/client.key
+- name: student
+  user:
+    client-certificate: rbac/student.crt
+    client-key: rbac/student.key
