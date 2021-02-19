@@ -1,4 +1,4 @@
-apiVersion: v1
+APIVersions: v1
 kind: Deployment
 metadata:
   name: flask-rest
